@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="OrdenMovilizacionViewDlg" widgetVar="OrdenMovilizacionViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{nombres.ViewOrdenMovilizacionTitle}">
+            <h:form id="OrdenMovilizacionViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{ordenMovilizacionController.selected != null}">
+                        <h:outputText value="#{nombres.ViewOrdenMovilizacionLabel_idOrdemovi}"/>
+                        <h:outputText value="#{ordenMovilizacionController.selected.idOrdemovi}" title="#{nombres.ViewOrdenMovilizacionTitle_idOrdemovi}"/>
+                        <h:outputText value="#{nombres.ViewOrdenMovilizacionLabel_fechsoliOrdemovi}"/>
+                        <h:outputText value="#{ordenMovilizacionController.selected.fechsoliOrdemovi}" title="#{nombres.ViewOrdenMovilizacionTitle_fechsoliOrdemovi}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{nombres.ViewOrdenMovilizacionLabel_estadoSoliOrdemovi}"/>
+                        <h:outputText value="#{ordenMovilizacionController.selected.estadoSoliOrdemovi}" title="#{nombres.ViewOrdenMovilizacionTitle_estadoSoliOrdemovi}"/>
+                        <h:outputText value="#{nombres.ViewOrdenMovilizacionLabel_feciniOrdemovi}"/>
+                        <h:outputText value="#{ordenMovilizacionController.selected.feciniOrdemovi}" title="#{nombres.ViewOrdenMovilizacionTitle_feciniOrdemovi}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{nombres.ViewOrdenMovilizacionLabel_fecfinOrdemovi}"/>
+                        <h:outputText value="#{ordenMovilizacionController.selected.fecfinOrdemovi}" title="#{nombres.ViewOrdenMovilizacionTitle_fecfinOrdemovi}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{nombres.ViewOrdenMovilizacionLabel_obserOrdemovi}"/>
+                        <h:outputText value="#{ordenMovilizacionController.selected.obserOrdemovi}" title="#{nombres.ViewOrdenMovilizacionTitle_obserOrdemovi}"/>
+                        <h:outputText value="#{nombres.ViewOrdenMovilizacionLabel_estadoOrdemovi}"/>
+                        <h:outputText value="#{ordenMovilizacionController.selected.estadoOrdemovi}" title="#{nombres.ViewOrdenMovilizacionTitle_estadoOrdemovi}"/>
+                        <h:outputText value="#{nombres.ViewOrdenMovilizacionLabel_idEmpl}"/>
+                        <h:outputText value="#{ordenMovilizacionController.selected.idEmpl}" title="#{nombres.ViewOrdenMovilizacionTitle_idEmpl}"/>
+                        <h:outputText value="#{nombres.ViewOrdenMovilizacionLabel_empIdEmpl}"/>
+                        <h:outputText value="#{ordenMovilizacionController.selected.empIdEmpl}" title="#{nombres.ViewOrdenMovilizacionTitle_empIdEmpl}"/>
+                        <h:outputText value="#{nombres.ViewOrdenMovilizacionLabel_idVehi}"/>
+                        <h:outputText value="#{ordenMovilizacionController.selected.idVehi}" title="#{nombres.ViewOrdenMovilizacionTitle_idVehi}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{nombres.Close}" onclick="OrdenMovilizacionViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

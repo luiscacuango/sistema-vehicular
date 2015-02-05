@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="TipoVehiculoEditDlg" widgetVar="TipoVehiculoEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{nombres.EditTipoVehiculoTitle}">
+            <h:form id="TipoVehiculoEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{tipoVehiculoController.selected != null}">
+                        <p:outputLabel value="#{nombres.EditTipoVehiculoLabel_idTipovehi}" for="idTipovehi" />
+                        <p:inputText id="idTipovehi" value="#{tipoVehiculoController.selected.idTipovehi}" title="#{nombres.EditTipoVehiculoTitle_idTipovehi}" disabled="true" required="false" requiredMessage="#{nombres.EditTipoVehiculoRequiredMessage_idTipovehi}"/>
+                        <p:outputLabel value="#{nombres.EditTipoVehiculoLabel_descriTipovehi}" for="descriTipovehi" />
+                        <p:inputText id="descriTipovehi" value="#{tipoVehiculoController.selected.descriTipovehi}" title="#{nombres.EditTipoVehiculoTitle_descriTipovehi}" required="true" requiredMessage="#{nombres.EditTipoVehiculoRequiredMessage_descriTipovehi}"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{tipoVehiculoController.update}" value="#{nombres.Save}" update="display,:TipoVehiculoListForm:datalist,:growl" oncomplete="handleSubmit(args, 'TipoVehiculoEditDialog');"/>
+                    <p:commandButton value="#{nombres.Cancel}" onclick="TipoVehiculoEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

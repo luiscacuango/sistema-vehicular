@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ControlRutaViewDlg" widgetVar="ControlRutaViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{nombres.ViewControlRutaTitle}">
+            <h:form id="ControlRutaViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{controlRutaController.selected != null}">
+                        <h:outputText value="#{nombres.ViewControlRutaLabel_idRuta}"/>
+                        <h:outputText value="#{controlRutaController.selected.idRuta}" title="#{nombres.ViewControlRutaTitle_idRuta}"/>
+                        <h:outputText value="#{nombres.ViewControlRutaLabel_descriRuta}"/>
+                        <h:outputText value="#{controlRutaController.selected.descriRuta}" title="#{nombres.ViewControlRutaTitle_descriRuta}"/>
+                        <h:outputText value="#{nombres.ViewControlRutaLabel_estadoRuta}"/>
+                        <h:outputText value="#{controlRutaController.selected.estadoRuta}" title="#{nombres.ViewControlRutaTitle_estadoRuta}"/>
+                        <h:outputText value="#{nombres.ViewControlRutaLabel_codCiudad}"/>
+                        <h:outputText value="#{controlRutaController.selected.codCiudad}" title="#{nombres.ViewControlRutaTitle_codCiudad}"/>
+                        <h:outputText value="#{nombres.ViewControlRutaLabel_idOrdemovi}"/>
+                        <h:outputText value="#{controlRutaController.selected.idOrdemovi}" title="#{nombres.ViewControlRutaTitle_idOrdemovi}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{nombres.Close}" onclick="ControlRutaViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

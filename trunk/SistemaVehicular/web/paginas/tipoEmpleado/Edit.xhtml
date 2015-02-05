@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="TipoEmpleadoEditDlg" widgetVar="TipoEmpleadoEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{nombres.EditTipoEmpleadoTitle}">
+            <h:form id="TipoEmpleadoEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{tipoEmpleadoController.selected != null}">
+                        <p:outputLabel value="#{nombres.EditTipoEmpleadoLabel_idTipoempl}" for="idTipoempl" />
+                        <p:inputText id="idTipoempl" value="#{tipoEmpleadoController.selected.idTipoempl}" title="#{nombres.EditTipoEmpleadoTitle_idTipoempl}" disabled="true" required="false" requiredMessage="#{nombres.EditTipoEmpleadoRequiredMessage_idTipoempl}"/>
+                        <p:outputLabel value="#{nombres.EditTipoEmpleadoLabel_descriTipoempl}" for="descriTipoempl" />
+                        <p:inputText id="descriTipoempl" value="#{tipoEmpleadoController.selected.descriTipoempl}" title="#{nombres.EditTipoEmpleadoTitle_descriTipoempl}" required="true" requiredMessage="#{nombres.EditTipoEmpleadoRequiredMessage_descriTipoempl}"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{tipoEmpleadoController.update}" value="#{nombres.Save}" update="display,:TipoEmpleadoListForm:datalist,:growl" oncomplete="handleSubmit(args, 'TipoEmpleadoEditDialog');"/>
+                    <p:commandButton value="#{nombres.Cancel}" onclick="TipoEmpleadoEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

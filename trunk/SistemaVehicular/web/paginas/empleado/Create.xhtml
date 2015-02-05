@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="EmpleadoCreateDlg" widgetVar="EmpleadoCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{nombres.CreateEmpleadoTitle}">
+            <h:form id="EmpleadoCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{empleadoController.selected != null}">
+                        <p:outputLabel value="#{nombres.CreateEmpleadoLabel_idEmpl}" for="idEmpl" />
+                        <p:inputText id="idEmpl" value="#{empleadoController.selected.idEmpl}" title="#{nombres.CreateEmpleadoTitle_idEmpl}" disabled="true" required="false" requiredMessage="#{nombres.CreateEmpleadoRequiredMessage_idEmpl}"/>
+                        <p:outputLabel value="#{nombres.CreateEmpleadoLabel_ceduEmpl}" for="ceduEmpl" />
+                        <p:inputText id="ceduEmpl" value="#{empleadoController.selected.ceduEmpl}" title="#{nombres.CreateEmpleadoTitle_ceduEmpl}" required="true" requiredMessage="#{nombres.CreateEmpleadoRequiredMessage_ceduEmpl}"/>
+                        <p:outputLabel value="#{nombres.CreateEmpleadoLabel_nombEmpl}" for="nombEmpl" />
+                        <p:inputText id="nombEmpl" value="#{empleadoController.selected.nombEmpl}" title="#{nombres.CreateEmpleadoTitle_nombEmpl}" required="true" requiredMessage="#{nombres.CreateEmpleadoRequiredMessage_nombEmpl}"/>
+                        <p:outputLabel value="#{nombres.CreateEmpleadoLabel_apelEmpl}" for="apelEmpl" />
+                        <p:inputText id="apelEmpl" value="#{empleadoController.selected.apelEmpl}" title="#{nombres.CreateEmpleadoTitle_apelEmpl}" required="true" requiredMessage="#{nombres.CreateEmpleadoRequiredMessage_apelEmpl}"/>
+                        <p:outputLabel value="#{nombres.CreateEmpleadoLabel_teleEmpl}" for="teleEmpl" />
+                        <p:inputText id="teleEmpl" value="#{empleadoController.selected.teleEmpl}" title="#{nombres.CreateEmpleadoTitle_teleEmpl}" />
+                        <p:outputLabel value="#{nombres.CreateEmpleadoLabel_direEmpl}" for="direEmpl" />
+                        <p:inputText id="direEmpl" value="#{empleadoController.selected.direEmpl}" title="#{nombres.CreateEmpleadoTitle_direEmpl}" />
+                        <p:outputLabel value="#{nombres.CreateEmpleadoLabel_geneEmpl}" for="geneEmpl" />
+                        <p:inputText id="geneEmpl" value="#{empleadoController.selected.geneEmpl}" title="#{nombres.CreateEmpleadoTitle_geneEmpl}" />
+                        <p:outputLabel value="#{nombres.CreateEmpleadoLabel_idDpto}" for="idDpto" />
+                        <p:selectOneMenu id="idDpto" value="#{empleadoController.selected.idDpto}" required="true" requiredMessage="#{nombres.EditEmpleadoRequiredMessage_idDpto}">
+                            <f:selectItems value="#{departamentoController.itemsAvailableSelectOne}"
+                                           var="idDptoItem"
+                                           itemValue="#{idDptoItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{nombres.CreateEmpleadoLabel_idTipoempl}" for="idTipoempl" />
+                        <p:selectOneMenu id="idTipoempl" value="#{empleadoController.selected.idTipoempl}" required="true" requiredMessage="#{nombres.EditEmpleadoRequiredMessage_idTipoempl}">
+                            <f:selectItems value="#{tipoEmpleadoController.itemsAvailableSelectOne}"
+                                           var="idTipoemplItem"
+                                           itemValue="#{idTipoemplItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{empleadoController.create}" value="#{nombres.Save}" update="display,:EmpleadoListForm:datalist,:growl" oncomplete="handleSubmit(args,'EmpleadoCreateDialog');"/>
+                    <p:commandButton value="#{nombres.Cancel}" onclick="EmpleadoCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
