@@ -73,13 +73,13 @@
                             <f:facet name="header">
                                 <h:outputText value="#{nombres.ListEmpleadoTitle_idDpto}"/>
                             </f:facet>
-                            <h:outputText value="#{item.idDpto}"/>
+                            <h:outputText value="#{item.idDpto.nombDpto}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{nombres.ListEmpleadoTitle_idTipoempl}"/>
                             </f:facet>
-                            <h:outputText value="#{item.idTipoempl}"/>
+                            <h:outputText value="#{item.idTipoempl.descriTipoempl}"/>
                         </p:column>
                         <f:facet name="footer">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{nombres.Create}" actionListener="#{empleadoController.prepareCreate}" update=":EmpleadoCreateForm" oncomplete="PF('EmpleadoCreateDialog').show()"/>

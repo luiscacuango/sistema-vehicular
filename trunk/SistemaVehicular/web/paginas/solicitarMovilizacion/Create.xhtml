@@ -8,45 +8,37 @@
 
     <ui:composition>
 
-        <p:dialog id="OrdenMovilizacionCreateDlg" widgetVar="OrdenMovilizacionCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="Solicitar nueva orden de Movilización">
-            <h:form id="OrdenMovilizacionCreateForm">
+        <p:dialog id="SolicitaMovilizacionCreateDlg" widgetVar="SolicitaMovilizacionCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="Solicitar nueva orden de Movilización">
+            <h:form id="SolicitaMovilizacionCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{ordenMovilizacionController.selected != null}">
-                        <p:outputLabel value="#{nombres.CreateOrdenMovilizacionLabel_idOrdemovi}" for="idOrdemovi" />
+                        <p:outputLabel value="Id Solicitud" for="idOrdemovi" />
                         <p:inputText id="idOrdemovi" value="#{ordenMovilizacionController.selected.idOrdemovi}" title="#{nombres.CreateOrdenMovilizacionTitle_idOrdemovi}" disabled="true" required="false" requiredMessage="#{nombres.CreateOrdenMovilizacionRequiredMessage_idOrdemovi}"/>
-                        <p:outputLabel value="#{nombres.CreateOrdenMovilizacionLabel_fechsoliOrdemovi}" for="fechsoliOrdemovi" />
+                        <p:outputLabel value="Fecha de Solicitud" for="fechsoliOrdemovi" />
                         <p:calendar id="fechsoliOrdemovi" pattern="MM/dd/yyyy HH:mm:ss" value="#{ordenMovilizacionController.selected.fechsoliOrdemovi}" title="#{nombres.EditOrdenMovilizacionTitle_fechsoliOrdemovi}" required="true" requiredMessage="#{nombres.EditOrdenMovilizacionRequiredMessage_fechsoliOrdemovi}" showOn="button"/>
-                        <p:outputLabel value="#{nombres.CreateOrdenMovilizacionLabel_estadoSoliOrdemovi}" for="estadoSoliOrdemovi" />
+                        <p:outputLabel value="Estado de Solicitud" for="estadoSoliOrdemovi" />
                         <p:inputText id="estadoSoliOrdemovi" value="#{ordenMovilizacionController.selected.estadoSoliOrdemovi}" title="#{nombres.CreateOrdenMovilizacionTitle_estadoSoliOrdemovi}" />
-                        <p:outputLabel value="#{nombres.CreateOrdenMovilizacionLabel_feciniOrdemovi}" for="feciniOrdemovi" />
+                        <p:outputLabel value="Fecha inicio Movilización" for="feciniOrdemovi" />
                         <p:calendar id="feciniOrdemovi" pattern="MM/dd/yyyy HH:mm:ss" value="#{ordenMovilizacionController.selected.feciniOrdemovi}" title="#{nombres.EditOrdenMovilizacionTitle_feciniOrdemovi}"  showOn="button"/>
-                        <p:outputLabel value="#{nombres.CreateOrdenMovilizacionLabel_fecfinOrdemovi}" for="fecfinOrdemovi" />
+                        <p:outputLabel value="Fecha fin Movilización" for="fecfinOrdemovi" />
                         <p:calendar id="fecfinOrdemovi" pattern="MM/dd/yyyy HH:mm:ss" value="#{ordenMovilizacionController.selected.fecfinOrdemovi}" title="#{nombres.EditOrdenMovilizacionTitle_fecfinOrdemovi}"  showOn="button"/>
-                        <p:outputLabel value="#{nombres.CreateOrdenMovilizacionLabel_obserOrdemovi}" for="obserOrdemovi" />
-                        <p:inputText id="obserOrdemovi" value="#{ordenMovilizacionController.selected.obserOrdemovi}" title="#{nombres.CreateOrdenMovilizacionTitle_obserOrdemovi}" />
-                        <p:outputLabel value="#{nombres.CreateOrdenMovilizacionLabel_estadoOrdemovi}" for="estadoOrdemovi" />
+                        <p:outputLabel value="Estado de Movilización" for="estadoOrdemovi" />
                         <p:inputText id="estadoOrdemovi" value="#{ordenMovilizacionController.selected.estadoOrdemovi}" title="#{nombres.CreateOrdenMovilizacionTitle_estadoOrdemovi}" />
-                        <p:outputLabel value="#{nombres.CreateOrdenMovilizacionLabel_idEmpl}" for="idEmpl" />
+                        <p:outputLabel value="Empleado Solicitante" for="idEmpl" />
                         <p:selectOneMenu id="idEmpl" value="#{ordenMovilizacionController.selected.idEmpl}" >
                             <f:selectItems value="#{empleadoController.itemsAvailableSelectOne}"
                                            var="idEmplItem"
-                                           itemValue="#{idEmplItem}"/>
+                                           itemValue="#{idEmplItem}" itemLabel="#{idEmplItem.nombEmpl} #{idEmplItem.apelEmpl}"/>
                         </p:selectOneMenu>
-                        <p:outputLabel value="#{nombres.CreateOrdenMovilizacionLabel_empIdEmpl}" for="empIdEmpl" />
-                        <p:selectOneMenu id="empIdEmpl" value="#{ordenMovilizacionController.selected.empIdEmpl}" >
-                            <f:selectItems value="#{empleadoController.itemsAvailableSelectOne}"
-                                           var="empIdEmplItem"
-                                           itemValue="#{empIdEmplItem}" itemLabel="#{empIdEmplItem.nombEmpl} #{empIdEmplItem.apelEmpl}"/>
-                        </p:selectOneMenu>
-                        <p:outputLabel value="#{nombres.CreateOrdenMovilizacionLabel_idVehi}" for="idVehi" />
+                        <p:outputLabel value="Placa Vehiculo" for="idVehi" />
                         <p:selectOneMenu id="idVehi" value="#{ordenMovilizacionController.selected.idVehi}" >
                             <f:selectItems value="#{vehiculoController.itemsAvailableSelectOne}"
                                            var="idVehiItem"
                                            itemValue="#{idVehiItem}" itemLabel="#{idVehiItem.placaVehi}"/>
                         </p:selectOneMenu>
                     </p:panelGrid>
-                    <p:commandButton actionListener="#{ordenMovilizacionController.create}" value="#{nombres.Save}" update="display,:OrdenMovilizacionListForm:datalist,:growl" oncomplete="handleSubmit(args,'OrdenMovilizacionCreateDialog');"/>
-                    <p:commandButton value="#{nombres.Cancel}" onclick="OrdenMovilizacionCreateDialog.hide()"/>
+                    <p:commandButton actionListener="#{ordenMovilizacionController.create}" value="#{nombres.Save}" update="display,:SolicitaMovilizacionListForm:datalist,:growl" oncomplete="handleSubmit(args,'SolicitaMovilizacionCreateDialog');"/>
+                    <p:commandButton value="#{nombres.Cancel}" onclick="SolicitaMovilizacionCreateDialog.hide()"/>
                 </h:panelGroup>
             </h:form>
         </p:dialog>

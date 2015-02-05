@@ -77,21 +77,21 @@
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{nombres.ListOrdenMovilizacionTitle_idEmpl}"/>
+                                <h:outputText value="Empleado Pide"/>
                             </f:facet>
-                            <h:outputText value="#{item.idEmpl}"/>
+                            <h:outputText value="#{item.idEmpl.nombEmpl} #{item.idEmpl.apelEmpl}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{nombres.ListOrdenMovilizacionTitle_empIdEmpl}"/>
+                                <h:outputText value="Empleado Autoriza"/>
                             </f:facet>
-                            <h:outputText value="#{item.empIdEmpl}"/>
+                            <h:outputText value="#{item.empIdEmpl.nombEmpl} #{item.empIdEmpl.apelEmpl}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{nombres.ListOrdenMovilizacionTitle_idVehi}"/>
+                                <h:outputText value="Vehiculo"/>
                             </f:facet>
-                            <h:outputText value="#{item.idVehi}"/>
+                            <h:outputText value="#{item.idVehi.placaVehi}"/>
                         </p:column>
                         <f:facet name="footer">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{nombres.Create}" actionListener="#{ordenMovilizacionController.prepareCreate}" update=":OrdenMovilizacionCreateForm" oncomplete="PF('OrdenMovilizacionCreateDialog').show()"/>

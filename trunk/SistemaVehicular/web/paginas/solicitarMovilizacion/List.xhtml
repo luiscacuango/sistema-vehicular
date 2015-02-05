@@ -14,8 +14,8 @@
         </ui:define>
 
         <ui:define name="body">
-            <h:form id="OrdenMovilizacionListForm">
-                <p:panel header="#{nombres.ListOrdenMovilizacionTitle}">
+            <h:form id="SolicitaMovilizacionListForm">
+                <p:panel header="Mostrar Solicitudes de Movilización">
                     <p:dataTable id="datalist" value="#{ordenMovilizacionController.items}" var="item"
                                  selectionMode="single" selection="#{ordenMovilizacionController.selected}"
                                  paginator="true"
@@ -29,13 +29,13 @@
 
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{nombres.ListOrdenMovilizacionTitle_idOrdemovi}"/>
+                                <h:outputText value="Id Solicitud"/>
                             </f:facet>
                             <h:outputText value="#{item.idOrdemovi}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{nombres.ListOrdenMovilizacionTitle_fechsoliOrdemovi}"/>
+                                <h:outputText value="Fecha de Solicitud"/>
                             </f:facet>
                             <h:outputText value="#{item.fechsoliOrdemovi}">
                                 <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
@@ -43,13 +43,13 @@
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{nombres.ListOrdenMovilizacionTitle_estadoSoliOrdemovi}"/>
+                                <h:outputText value="Estado de Solicitud"/>
                             </f:facet>
                             <h:outputText value="#{item.estadoSoliOrdemovi}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{nombres.ListOrdenMovilizacionTitle_feciniOrdemovi}"/>
+                                <h:outputText value="Fecha inicio Movilización"/>
                             </f:facet>
                             <h:outputText value="#{item.feciniOrdemovi}">
                                 <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
@@ -57,7 +57,7 @@
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{nombres.ListOrdenMovilizacionTitle_fecfinOrdemovi}"/>
+                                <h:outputText value="Fecha fin Movilización"/>
                             </f:facet>
                             <h:outputText value="#{item.fecfinOrdemovi}">
                                 <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
@@ -65,38 +65,26 @@
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{nombres.ListOrdenMovilizacionTitle_obserOrdemovi}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.obserOrdemovi}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{nombres.ListOrdenMovilizacionTitle_estadoOrdemovi}"/>
+                                <h:outputText value="Estado de Movilización"/>
                             </f:facet>
                             <h:outputText value="#{item.estadoOrdemovi}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{nombres.ListOrdenMovilizacionTitle_idEmpl}"/>
+                                <h:outputText value="Empleado Pide"/>
                             </f:facet>
-                            <h:outputText value="#{item.idEmpl}"/>
+                            <h:outputText value="#{item.idEmpl.nombEmpl} #{item.idEmpl.apelEmpl}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{nombres.ListOrdenMovilizacionTitle_empIdEmpl}"/>
+                                <h:outputText value="Placa Vehiculo"/>
                             </f:facet>
-                            <h:outputText value="#{item.empIdEmpl}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{nombres.ListOrdenMovilizacionTitle_idVehi}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.idVehi}"/>
+                            <h:outputText value="#{item.idVehi.placaVehi}"/>
                         </p:column>
                         <f:facet name="footer">
-                            <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{nombres.Create}" actionListener="#{ordenMovilizacionController.prepareCreate}" update=":OrdenMovilizacionCreateForm" oncomplete="PF('OrdenMovilizacionCreateDialog').show()"/>
-                            <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{nombres.View}" update=":OrdenMovilizacionViewForm" oncomplete="PF('OrdenMovilizacionViewDialog').show()" disabled="#{empty ordenMovilizacionController.selected}"/>
-                            <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{nombres.Edit}" update=":OrdenMovilizacionEditForm" oncomplete="PF('OrdenMovilizacionEditDialog').show()" disabled="#{empty ordenMovilizacionController.selected}"/>
+                            <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{nombres.Create}" actionListener="#{ordenMovilizacionController.prepareCreate}" update=":SolicitaMovilizacionCreateForm" oncomplete="PF('SolicitaMovilizacionCreateDialog').show()"/>
+                            <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{nombres.View}" update=":SolicitaMovilizacionViewForm" oncomplete="PF('SolicitaMovilizacionViewDialog').show()" disabled="#{empty ordenMovilizacionController.selected}"/>
+                            <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{nombres.Edit}" update=":SolicitaMovilizacionEditForm" oncomplete="PF('SolicitaMovilizacionEditDialog').show()" disabled="#{empty ordenMovilizacionController.selected}"/>
                             <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{nombres.Delete}" actionListener="#{ordenMovilizacionController.destroy}" update=":growl,datalist" disabled="#{empty ordenMovilizacionController.selected}"/>
                         </f:facet>
                     </p:dataTable>

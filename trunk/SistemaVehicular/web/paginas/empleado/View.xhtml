@@ -27,9 +27,9 @@
                         <h:outputText value="#{nombres.ViewEmpleadoLabel_geneEmpl}"/>
                         <h:outputText value="#{empleadoController.selected.geneEmpl}" title="#{nombres.ViewEmpleadoTitle_geneEmpl}"/>
                         <h:outputText value="#{nombres.ViewEmpleadoLabel_idDpto}"/>
-                        <h:outputText value="#{empleadoController.selected.idDpto}" title="#{nombres.ViewEmpleadoTitle_idDpto}"/>
+                        <h:outputText value="#{empleadoController.selected.idDpto.nombDpto}" title="#{nombres.ViewEmpleadoTitle_idDpto}"/>
                         <h:outputText value="#{nombres.ViewEmpleadoLabel_idTipoempl}"/>
-                        <h:outputText value="#{empleadoController.selected.idTipoempl}" title="#{nombres.ViewEmpleadoTitle_idTipoempl}"/>
+                        <h:outputText value="#{empleadoController.selected.idTipoempl.descriTipoempl}" title="#{nombres.ViewEmpleadoTitle_idTipoempl}"/>
                     </p:panelGrid>
                     <p:commandButton value="#{nombres.Close}" onclick="EmpleadoViewDialog.hide()"/>
                 </h:panelGroup>

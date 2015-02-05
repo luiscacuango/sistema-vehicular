@@ -30,13 +30,13 @@
                         <p:selectOneMenu id="idDpto" value="#{empleadoController.selected.idDpto}" required="true" requiredMessage="#{nombres.EditEmpleadoRequiredMessage_idDpto}">
                             <f:selectItems value="#{departamentoController.itemsAvailableSelectOne}"
                                            var="idDptoItem"
-                                           itemValue="#{idDptoItem}"/>
+                                           itemValue="#{idDptoItem}" itemLabel="#{idDptoItem.nombDpto}"/>
                         </p:selectOneMenu>
                         <p:outputLabel value="#{nombres.CreateEmpleadoLabel_idTipoempl}" for="idTipoempl" />
                         <p:selectOneMenu id="idTipoempl" value="#{empleadoController.selected.idTipoempl}" required="true" requiredMessage="#{nombres.EditEmpleadoRequiredMessage_idTipoempl}">
                             <f:selectItems value="#{tipoEmpleadoController.itemsAvailableSelectOne}"
                                            var="idTipoemplItem"
-                                           itemValue="#{idTipoemplItem}"/>
+                                           itemValue="#{idTipoemplItem}" itemLabel="#{idTipoemplItem.descriTipoempl}"/>
                         </p:selectOneMenu>
                     </p:panelGrid>
                     <p:commandButton actionListener="#{empleadoController.create}" value="#{nombres.Save}" update="display,:EmpleadoListForm:datalist,:growl" oncomplete="handleSubmit(args,'EmpleadoCreateDialog');"/>
