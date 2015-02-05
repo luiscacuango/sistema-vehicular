@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="VehiculoEditDlg" widgetVar="VehiculoEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{nombres.EditVehiculoTitle}">
+            <h:form id="VehiculoEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{vehiculoController.selected != null}">
+                        <p:outputLabel value="#{nombres.EditVehiculoLabel_idVehi}" for="idVehi" />
+                        <p:inputText id="idVehi" value="#{vehiculoController.selected.idVehi}" title="#{nombres.EditVehiculoTitle_idVehi}" disabled="true" required="false" requiredMessage="#{nombres.EditVehiculoRequiredMessage_idVehi}"/>
+                        <p:outputLabel value="#{nombres.EditVehiculoLabel_motorVehi}" for="motorVehi" />
+                        <p:inputText id="motorVehi" value="#{vehiculoController.selected.motorVehi}" title="#{nombres.EditVehiculoTitle_motorVehi}" required="true" requiredMessage="#{nombres.EditVehiculoRequiredMessage_motorVehi}"/>
+                        <p:outputLabel value="#{nombres.EditVehiculoLabel_marcaVehi}" for="marcaVehi" />
+                        <p:inputText id="marcaVehi" value="#{vehiculoController.selected.marcaVehi}" title="#{nombres.EditVehiculoTitle_marcaVehi}" required="true" requiredMessage="#{nombres.EditVehiculoRequiredMessage_marcaVehi}"/>
+                        <p:outputLabel value="#{nombres.EditVehiculoLabel_matriVehi}" for="matriVehi" />
+                        <p:inputText id="matriVehi" value="#{vehiculoController.selected.matriVehi}" title="#{nombres.EditVehiculoTitle_matriVehi}" />
+                        <p:outputLabel value="#{nombres.EditVehiculoLabel_chasisVehi}" for="chasisVehi" />
+                        <p:inputText id="chasisVehi" value="#{vehiculoController.selected.chasisVehi}" title="#{nombres.EditVehiculoTitle_chasisVehi}" />
+                        <p:outputLabel value="#{nombres.EditVehiculoLabel_placaVehi}" for="placaVehi" />
+                        <p:inputText id="placaVehi" value="#{vehiculoController.selected.placaVehi}" title="#{nombres.EditVehiculoTitle_placaVehi}" />
+                        <p:outputLabel value="#{nombres.EditVehiculoLabel_colorVehi}" for="colorVehi" />
+                        <p:inputText id="colorVehi" value="#{vehiculoController.selected.colorVehi}" title="#{nombres.EditVehiculoTitle_colorVehi}" />
+                        <p:outputLabel value="#{nombres.EditVehiculoLabel_idTipovehi}" for="idTipovehi" />
+                        <p:selectOneMenu id="idTipovehi" value="#{vehiculoController.selected.idTipovehi}" required="true" requiredMessage="#{nombres.EditVehiculoRequiredMessage_idTipovehi}">
+                            <f:selectItem itemLabel="#{nombres.SelectOneMessage}"/>
+                            <f:selectItems value="#{tipoVehiculoController.itemsAvailableSelectOne}"
+                                           var="idTipovehiItem"
+                                           itemValue="#{idTipovehiItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{vehiculoController.update}" value="#{nombres.Save}" update="display,:VehiculoListForm:datalist,:growl" oncomplete="handleSubmit(args, 'VehiculoEditDialog');"/>
+                    <p:commandButton value="#{nombres.Cancel}" onclick="VehiculoEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

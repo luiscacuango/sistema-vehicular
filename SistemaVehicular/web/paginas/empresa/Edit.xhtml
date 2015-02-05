@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="EmpresaEditDlg" widgetVar="EmpresaEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{nombres.EditEmpresaTitle}">
+            <h:form id="EmpresaEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{empresaController.selected != null}">
+                        <p:outputLabel value="#{nombres.EditEmpresaLabel_idEmpresa}" for="idEmpresa" />
+                        <p:inputText id="idEmpresa" value="#{empresaController.selected.idEmpresa}" title="#{nombres.EditEmpresaTitle_idEmpresa}" disabled="true" required="false" requiredMessage="#{nombres.EditEmpresaRequiredMessage_idEmpresa}"/>
+                        <p:outputLabel value="#{nombres.EditEmpresaLabel_nombEmpr}" for="nombEmpr" />
+                        <p:inputText id="nombEmpr" value="#{empresaController.selected.nombEmpr}" title="#{nombres.EditEmpresaTitle_nombEmpr}" required="true" requiredMessage="#{nombres.EditEmpresaRequiredMessage_nombEmpr}"/>
+                        <p:outputLabel value="#{nombres.EditEmpresaLabel_siglEmpr}" for="siglEmpr" />
+                        <p:inputText id="siglEmpr" value="#{empresaController.selected.siglEmpr}" title="#{nombres.EditEmpresaTitle_siglEmpr}" />
+                        <p:outputLabel value="#{nombres.EditEmpresaLabel_direEmpr}" for="direEmpr" />
+                        <p:inputText id="direEmpr" value="#{empresaController.selected.direEmpr}" title="#{nombres.EditEmpresaTitle_direEmpr}" />
+                        <p:outputLabel value="#{nombres.EditEmpresaLabel_telfEmpr}" for="telfEmpr" />
+                        <p:inputText id="telfEmpr" value="#{empresaController.selected.telfEmpr}" title="#{nombres.EditEmpresaTitle_telfEmpr}" />
+                        <p:outputLabel value="#{nombres.EditEmpresaLabel_estEmpr}" for="estEmpr" />
+                        <p:inputText id="estEmpr" value="#{empresaController.selected.estEmpr}" title="#{nombres.EditEmpresaTitle_estEmpr}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{empresaController.update}" value="#{nombres.Save}" update="display,:EmpresaListForm:datalist,:growl" oncomplete="handleSubmit(args, 'EmpresaEditDialog');"/>
+                    <p:commandButton value="#{nombres.Cancel}" onclick="EmpresaEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

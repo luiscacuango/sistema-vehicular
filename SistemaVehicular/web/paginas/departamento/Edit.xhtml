@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="DepartamentoEditDlg" widgetVar="DepartamentoEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{nombres.EditDepartamentoTitle}">
+            <h:form id="DepartamentoEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{departamentoController.selected != null}">
+                        <p:outputLabel value="#{nombres.EditDepartamentoLabel_idDpto}" for="idDpto" />
+                        <p:inputText id="idDpto" value="#{departamentoController.selected.idDpto}" title="#{nombres.EditDepartamentoTitle_idDpto}" disabled="true" required="false" requiredMessage="#{nombres.EditDepartamentoRequiredMessage_idDpto}"/>
+                        <p:outputLabel value="#{nombres.EditDepartamentoLabel_nombDpto}" for="nombDpto" />
+                        <p:inputText id="nombDpto" value="#{departamentoController.selected.nombDpto}" title="#{nombres.EditDepartamentoTitle_nombDpto}" required="true" requiredMessage="#{nombres.EditDepartamentoRequiredMessage_nombDpto}"/>
+                        <p:outputLabel value="#{nombres.EditDepartamentoLabel_siglDpto}" for="siglDpto" />
+                        <p:inputText id="siglDpto" value="#{departamentoController.selected.siglDpto}" title="#{nombres.EditDepartamentoTitle_siglDpto}" />
+                        <p:outputLabel value="#{nombres.EditDepartamentoLabel_estaDpto}" for="estaDpto" />
+                        <p:inputText id="estaDpto" value="#{departamentoController.selected.estaDpto}" title="#{nombres.EditDepartamentoTitle_estaDpto}" />
+                        <p:outputLabel value="#{nombres.EditDepartamentoLabel_idEmpresa}" for="idEmpresa" />
+                        <p:selectOneMenu id="idEmpresa" value="#{departamentoController.selected.idEmpresa}" required="true" requiredMessage="#{nombres.EditDepartamentoRequiredMessage_idEmpresa}">
+                            <f:selectItem itemLabel="#{nombres.SelectOneMessage}"/>
+                            <f:selectItems value="#{empresaController.itemsAvailableSelectOne}"
+                                           var="idEmpresaItem"
+                                           itemValue="#{idEmpresaItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{departamentoController.update}" value="#{nombres.Save}" update="display,:DepartamentoListForm:datalist,:growl" oncomplete="handleSubmit(args, 'DepartamentoEditDialog');"/>
+                    <p:commandButton value="#{nombres.Cancel}" onclick="DepartamentoEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

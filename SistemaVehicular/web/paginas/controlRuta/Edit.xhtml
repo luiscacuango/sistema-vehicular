@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ControlRutaEditDlg" widgetVar="ControlRutaEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{nombres.EditControlRutaTitle}">
+            <h:form id="ControlRutaEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{controlRutaController.selected != null}">
+                        <p:outputLabel value="#{nombres.EditControlRutaLabel_idRuta}" for="idRuta" />
+                        <p:inputText id="idRuta" value="#{controlRutaController.selected.idRuta}" title="#{nombres.EditControlRutaTitle_idRuta}" disabled="true" required="false" requiredMessage="#{nombres.EditControlRutaRequiredMessage_idRuta}"/>
+                        <p:outputLabel value="#{nombres.EditControlRutaLabel_descriRuta}" for="descriRuta" />
+                        <p:inputText id="descriRuta" value="#{controlRutaController.selected.descriRuta}" title="#{nombres.EditControlRutaTitle_descriRuta}" />
+                        <p:outputLabel value="#{nombres.EditControlRutaLabel_estadoRuta}" for="estadoRuta" />
+                        <p:inputText id="estadoRuta" value="#{controlRutaController.selected.estadoRuta}" title="#{nombres.EditControlRutaTitle_estadoRuta}" />
+                        <p:outputLabel value="#{nombres.EditControlRutaLabel_codCiudad}" for="codCiudad" />
+                        <p:selectOneMenu id="codCiudad" value="#{controlRutaController.selected.codCiudad}" >
+                            <f:selectItem itemLabel="#{nombres.SelectOneMessage}"/>
+                            <f:selectItems value="#{ciudadController.itemsAvailableSelectOne}"
+                                           var="codCiudadItem"
+                                           itemValue="#{codCiudadItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{nombres.EditControlRutaLabel_idOrdemovi}" for="idOrdemovi" />
+                        <p:selectOneMenu id="idOrdemovi" value="#{controlRutaController.selected.idOrdemovi}" >
+                            <f:selectItem itemLabel="#{nombres.SelectOneMessage}"/>
+                            <f:selectItems value="#{ordenMovilizacionController.itemsAvailableSelectOne}"
+                                           var="idOrdemoviItem"
+                                           itemValue="#{idOrdemoviItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{controlRutaController.update}" value="#{nombres.Save}" update="display,:ControlRutaListForm:datalist,:growl" oncomplete="handleSubmit(args, 'ControlRutaEditDialog');"/>
+                    <p:commandButton value="#{nombres.Cancel}" onclick="ControlRutaEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

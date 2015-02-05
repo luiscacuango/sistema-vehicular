@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="VehiculoViewDlg" widgetVar="VehiculoViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{nombres.ViewVehiculoTitle}">
+            <h:form id="VehiculoViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{vehiculoController.selected != null}">
+                        <h:outputText value="#{nombres.ViewVehiculoLabel_idVehi}"/>
+                        <h:outputText value="#{vehiculoController.selected.idVehi}" title="#{nombres.ViewVehiculoTitle_idVehi}"/>
+                        <h:outputText value="#{nombres.ViewVehiculoLabel_motorVehi}"/>
+                        <h:outputText value="#{vehiculoController.selected.motorVehi}" title="#{nombres.ViewVehiculoTitle_motorVehi}"/>
+                        <h:outputText value="#{nombres.ViewVehiculoLabel_marcaVehi}"/>
+                        <h:outputText value="#{vehiculoController.selected.marcaVehi}" title="#{nombres.ViewVehiculoTitle_marcaVehi}"/>
+                        <h:outputText value="#{nombres.ViewVehiculoLabel_matriVehi}"/>
+                        <h:outputText value="#{vehiculoController.selected.matriVehi}" title="#{nombres.ViewVehiculoTitle_matriVehi}"/>
+                        <h:outputText value="#{nombres.ViewVehiculoLabel_chasisVehi}"/>
+                        <h:outputText value="#{vehiculoController.selected.chasisVehi}" title="#{nombres.ViewVehiculoTitle_chasisVehi}"/>
+                        <h:outputText value="#{nombres.ViewVehiculoLabel_placaVehi}"/>
+                        <h:outputText value="#{vehiculoController.selected.placaVehi}" title="#{nombres.ViewVehiculoTitle_placaVehi}"/>
+                        <h:outputText value="#{nombres.ViewVehiculoLabel_colorVehi}"/>
+                        <h:outputText value="#{vehiculoController.selected.colorVehi}" title="#{nombres.ViewVehiculoTitle_colorVehi}"/>
+                        <h:outputText value="#{nombres.ViewVehiculoLabel_idTipovehi}"/>
+                        <h:outputText value="#{vehiculoController.selected.idTipovehi}" title="#{nombres.ViewVehiculoTitle_idTipovehi}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{nombres.Close}" onclick="VehiculoViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

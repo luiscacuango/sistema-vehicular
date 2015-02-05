@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/template.xhtml">
+
+
+        <ui:define name="title">
+            <h:outputText value="#{nombres.ListControlRutaTitle}"></h:outputText>
+        </ui:define>
+
+        <ui:define name="body">
+            <h:form id="ControlRutaListForm">
+                <p:panel header="#{nombres.ListControlRutaTitle}">
+                    <p:dataTable id="datalist" value="#{controlRutaController.items}" var="item"
+                                 selectionMode="single" selection="#{controlRutaController.selected}"
+                                 paginator="true"
+                                 rowKey="#{item.idRuta}"
+                                 rows="10"
+                                 rowsPerPageTemplate="10,20,30,40,50"
+                                 >
+
+                        <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
+                        <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
+
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{nombres.ListControlRutaTitle_idRuta}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idRuta}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{nombres.ListControlRutaTitle_descriRuta}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.descriRuta}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{nombres.ListControlRutaTitle_estadoRuta}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.estadoRuta}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{nombres.ListControlRutaTitle_codCiudad}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.codCiudad}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{nombres.ListControlRutaTitle_idOrdemovi}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idOrdemovi}"/>
+                        </p:column>
+                        <f:facet name="footer">
+                            <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{nombres.Create}" actionListener="#{controlRutaController.prepareCreate}" update=":ControlRutaCreateForm" oncomplete="PF('ControlRutaCreateDialog').show()"/>
+                            <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{nombres.View}" update=":ControlRutaViewForm" oncomplete="PF('ControlRutaViewDialog').show()" disabled="#{empty controlRutaController.selected}"/>
+                            <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{nombres.Edit}" update=":ControlRutaEditForm" oncomplete="PF('ControlRutaEditDialog').show()" disabled="#{empty controlRutaController.selected}"/>
+                            <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{nombres.Delete}" actionListener="#{controlRutaController.destroy}" update=":growl,datalist" disabled="#{empty controlRutaController.selected}"/>
+                        </f:facet>
+                    </p:dataTable>
+                </p:panel>
+            </h:form>
+
+            <ui:include src="Create.xhtml"/>
+            <ui:include src="Edit.xhtml"/>
+            <ui:include src="View.xhtml"/>
+        </ui:define>
+    </ui:composition>
+
+</html>

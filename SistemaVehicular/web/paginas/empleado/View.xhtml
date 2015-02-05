@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="EmpleadoViewDlg" widgetVar="EmpleadoViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{nombres.ViewEmpleadoTitle}">
+            <h:form id="EmpleadoViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{empleadoController.selected != null}">
+                        <h:outputText value="#{nombres.ViewEmpleadoLabel_idEmpl}"/>
+                        <h:outputText value="#{empleadoController.selected.idEmpl}" title="#{nombres.ViewEmpleadoTitle_idEmpl}"/>
+                        <h:outputText value="#{nombres.ViewEmpleadoLabel_ceduEmpl}"/>
+                        <h:outputText value="#{empleadoController.selected.ceduEmpl}" title="#{nombres.ViewEmpleadoTitle_ceduEmpl}"/>
+                        <h:outputText value="#{nombres.ViewEmpleadoLabel_nombEmpl}"/>
+                        <h:outputText value="#{empleadoController.selected.nombEmpl}" title="#{nombres.ViewEmpleadoTitle_nombEmpl}"/>
+                        <h:outputText value="#{nombres.ViewEmpleadoLabel_apelEmpl}"/>
+                        <h:outputText value="#{empleadoController.selected.apelEmpl}" title="#{nombres.ViewEmpleadoTitle_apelEmpl}"/>
+                        <h:outputText value="#{nombres.ViewEmpleadoLabel_teleEmpl}"/>
+                        <h:outputText value="#{empleadoController.selected.teleEmpl}" title="#{nombres.ViewEmpleadoTitle_teleEmpl}"/>
+                        <h:outputText value="#{nombres.ViewEmpleadoLabel_direEmpl}"/>
+                        <h:outputText value="#{empleadoController.selected.direEmpl}" title="#{nombres.ViewEmpleadoTitle_direEmpl}"/>
+                        <h:outputText value="#{nombres.ViewEmpleadoLabel_geneEmpl}"/>
+                        <h:outputText value="#{empleadoController.selected.geneEmpl}" title="#{nombres.ViewEmpleadoTitle_geneEmpl}"/>
+                        <h:outputText value="#{nombres.ViewEmpleadoLabel_idDpto}"/>
+                        <h:outputText value="#{empleadoController.selected.idDpto}" title="#{nombres.ViewEmpleadoTitle_idDpto}"/>
+                        <h:outputText value="#{nombres.ViewEmpleadoLabel_idTipoempl}"/>
+                        <h:outputText value="#{empleadoController.selected.idTipoempl}" title="#{nombres.ViewEmpleadoTitle_idTipoempl}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{nombres.Close}" onclick="EmpleadoViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
