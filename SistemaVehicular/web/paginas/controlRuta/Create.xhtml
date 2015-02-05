@@ -22,13 +22,13 @@
                         <p:selectOneMenu id="codCiudad" value="#{controlRutaController.selected.codCiudad}" >
                             <f:selectItems value="#{ciudadController.itemsAvailableSelectOne}"
                                            var="codCiudadItem"
-                                           itemValue="#{codCiudadItem}"/>
+                                           itemValue="#{codCiudadItem}" itemLabel="#{codCiudadItem.nomCiudad}"/>
                         </p:selectOneMenu>
                         <p:outputLabel value="#{nombres.CreateControlRutaLabel_idOrdemovi}" for="idOrdemovi" />
                         <p:selectOneMenu id="idOrdemovi" value="#{controlRutaController.selected.idOrdemovi}" >
                             <f:selectItems value="#{ordenMovilizacionController.itemsAvailableSelectOne}"
                                            var="idOrdemoviItem"
-                                           itemValue="#{idOrdemoviItem}"/>
+                                           itemValue="#{idOrdemoviItem}" itemLabel="#{idOrdemoviItem.idOrdemovi}"/>
                         </p:selectOneMenu>
                     </p:panelGrid>
                     <p:commandButton actionListener="#{controlRutaController.create}" value="#{nombres.Save}" update="display,:ControlRutaListForm:datalist,:growl" oncomplete="handleSubmit(args,'ControlRutaCreateDialog');"/>

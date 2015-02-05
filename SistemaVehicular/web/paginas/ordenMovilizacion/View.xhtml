@@ -33,11 +33,11 @@
                         <h:outputText value="#{nombres.ViewOrdenMovilizacionLabel_estadoOrdemovi}"/>
                         <h:outputText value="#{ordenMovilizacionController.selected.estadoOrdemovi}" title="#{nombres.ViewOrdenMovilizacionTitle_estadoOrdemovi}"/>
                         <h:outputText value="#{nombres.ViewOrdenMovilizacionLabel_idEmpl}"/>
-                        <h:outputText value="#{ordenMovilizacionController.selected.idEmpl}" title="#{nombres.ViewOrdenMovilizacionTitle_idEmpl}"/>
+                        <h:outputText value="#{ordenMovilizacionController.selected.idEmpl.nombEmpl} #{ordenMovilizacionController.selected.idEmpl.apelEmpl}" title="#{nombres.ViewOrdenMovilizacionTitle_idEmpl}"/>
                         <h:outputText value="#{nombres.ViewOrdenMovilizacionLabel_empIdEmpl}"/>
-                        <h:outputText value="#{ordenMovilizacionController.selected.empIdEmpl}" title="#{nombres.ViewOrdenMovilizacionTitle_empIdEmpl}"/>
+                        <h:outputText value="#{ordenMovilizacionController.selected.empIdEmpl.nombEmpl} #{ordenMovilizacionController.selected.empIdEmpl.apelEmpl}" title="#{nombres.ViewOrdenMovilizacionTitle_empIdEmpl}"/>
                         <h:outputText value="#{nombres.ViewOrdenMovilizacionLabel_idVehi}"/>
-                        <h:outputText value="#{ordenMovilizacionController.selected.idVehi}" title="#{nombres.ViewOrdenMovilizacionTitle_idVehi}"/>
+                        <h:outputText value="#{ordenMovilizacionController.selected.idVehi.placaVehi}" title="#{nombres.ViewOrdenMovilizacionTitle_idVehi}"/>
                     </p:panelGrid>
                     <p:commandButton value="#{nombres.Close}" onclick="OrdenMovilizacionViewDialog.hide()"/>
                 </h:panelGroup>

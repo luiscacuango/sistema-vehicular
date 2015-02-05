@@ -16,60 +16,62 @@
         <ui:define name="body">
             <h:form id="EmpresaListForm">
                 <p:panel header="#{nombres.ListEmpresaTitle}">
-                    <p:dataTable id="datalist" value="#{empresaController.items}" var="item"
-                                 selectionMode="single" selection="#{empresaController.selected}"
-                                 paginator="true"
-                                 rowKey="#{item.idEmpresa}"
-                                 rows="10"
-                                 rowsPerPageTemplate="10,20,30,40,50"
-                                 >
+                    <center>
+                        <p:dataTable id="datalist" value="#{empresaController.items}" var="item"
+                                     selectionMode="single" selection="#{empresaController.selected}"
+                                     paginator="true"
+                                     rowKey="#{item.idEmpresa}"
+                                     rows="10" style="width: 800px"
+                                     rowsPerPageTemplate="10,20,30,40,50"
+                                     >
 
-                        <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
-                        <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
+                            <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
+                            <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
 
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{nombres.ListEmpresaTitle_idEmpresa}"/>
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{nombres.ListEmpresaTitle_idEmpresa}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.idEmpresa}"/>
+                            </p:column>
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{nombres.ListEmpresaTitle_nombEmpr}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.nombEmpr}"/>
+                            </p:column>
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{nombres.ListEmpresaTitle_siglEmpr}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.siglEmpr}"/>
+                            </p:column>
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{nombres.ListEmpresaTitle_direEmpr}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.direEmpr}"/>
+                            </p:column>
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{nombres.ListEmpresaTitle_telfEmpr}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.telfEmpr}"/>
+                            </p:column>
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{nombres.ListEmpresaTitle_estEmpr}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.estEmpr}"/>
+                            </p:column>
+                            <f:facet name="footer">
+                                <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{nombres.Create}" actionListener="#{empresaController.prepareCreate}" update=":EmpresaCreateForm" oncomplete="PF('EmpresaCreateDialog').show()"/>
+                                <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{nombres.View}" update=":EmpresaViewForm" oncomplete="PF('EmpresaViewDialog').show()" disabled="#{empty empresaController.selected}"/>
+                                <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{nombres.Edit}" update=":EmpresaEditForm" oncomplete="PF('EmpresaEditDialog').show()" disabled="#{empty empresaController.selected}"/>
+                                <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{nombres.Delete}" actionListener="#{empresaController.destroy}" update=":growl,datalist" disabled="#{empty empresaController.selected}"/>
                             </f:facet>
-                            <h:outputText value="#{item.idEmpresa}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{nombres.ListEmpresaTitle_nombEmpr}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.nombEmpr}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{nombres.ListEmpresaTitle_siglEmpr}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.siglEmpr}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{nombres.ListEmpresaTitle_direEmpr}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.direEmpr}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{nombres.ListEmpresaTitle_telfEmpr}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.telfEmpr}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{nombres.ListEmpresaTitle_estEmpr}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.estEmpr}"/>
-                        </p:column>
-                        <f:facet name="footer">
-                            <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{nombres.Create}" actionListener="#{empresaController.prepareCreate}" update=":EmpresaCreateForm" oncomplete="PF('EmpresaCreateDialog').show()"/>
-                            <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{nombres.View}" update=":EmpresaViewForm" oncomplete="PF('EmpresaViewDialog').show()" disabled="#{empty empresaController.selected}"/>
-                            <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{nombres.Edit}" update=":EmpresaEditForm" oncomplete="PF('EmpresaEditDialog').show()" disabled="#{empty empresaController.selected}"/>
-                            <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{nombres.Delete}" actionListener="#{empresaController.destroy}" update=":growl,datalist" disabled="#{empty empresaController.selected}"/>
-                        </f:facet>
-                    </p:dataTable>
+                        </p:dataTable>
+                    </center>
                 </p:panel>
             </h:form>
 

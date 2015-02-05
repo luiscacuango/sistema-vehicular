@@ -21,7 +21,7 @@
                         <h:outputText value="#{nombres.ViewDepartamentoLabel_estaDpto}"/>
                         <h:outputText value="#{departamentoController.selected.estaDpto}" title="#{nombres.ViewDepartamentoTitle_estaDpto}"/>
                         <h:outputText value="#{nombres.ViewDepartamentoLabel_idEmpresa}"/>
-                        <h:outputText value="#{departamentoController.selected.idEmpresa}" title="#{nombres.ViewDepartamentoTitle_idEmpresa}"/>
+                        <h:outputText value="#{departamentoController.selected.idEmpresa.nombEmpr}" title="#{nombres.ViewDepartamentoTitle_idEmpresa}"/>
                     </p:panelGrid>
                     <p:commandButton value="#{nombres.Close}" onclick="DepartamentoViewDialog.hide()"/>
                 </h:panelGroup>

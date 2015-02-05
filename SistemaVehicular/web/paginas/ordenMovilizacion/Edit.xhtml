@@ -31,21 +31,21 @@
                             <f:selectItem itemLabel="#{nombres.SelectOneMessage}"/>
                             <f:selectItems value="#{empleadoController.itemsAvailableSelectOne}"
                                            var="idEmplItem"
-                                           itemValue="#{idEmplItem}"/>
+                                           itemValue="#{idEmplItem}" itemLabel="#{idEmplItem.nombEmpl} #{idEmplItem.apelEmpl}"/>
                         </p:selectOneMenu>
                         <p:outputLabel value="#{nombres.EditOrdenMovilizacionLabel_empIdEmpl}" for="empIdEmpl" />
                         <p:selectOneMenu id="empIdEmpl" value="#{ordenMovilizacionController.selected.empIdEmpl}" >
                             <f:selectItem itemLabel="#{nombres.SelectOneMessage}"/>
                             <f:selectItems value="#{empleadoController.itemsAvailableSelectOne}"
                                            var="empIdEmplItem"
-                                           itemValue="#{empIdEmplItem}"/>
+                                           itemValue="#{empIdEmplItem}" itemLabel="#{empIdEmplItem.nombEmpl} #{empIdEmplItem.apelEmpl}"/>
                         </p:selectOneMenu>
                         <p:outputLabel value="#{nombres.EditOrdenMovilizacionLabel_idVehi}" for="idVehi" />
                         <p:selectOneMenu id="idVehi" value="#{ordenMovilizacionController.selected.idVehi}" >
                             <f:selectItem itemLabel="#{nombres.SelectOneMessage}"/>
                             <f:selectItems value="#{vehiculoController.itemsAvailableSelectOne}"
                                            var="idVehiItem"
-                                           itemValue="#{idVehiItem}"/>
+                                           itemValue="#{idVehiItem}" itemLabel="#{idVehiItem.placaVehi}"/>
                         </p:selectOneMenu>
                     </p:panelGrid>
                     <p:commandButton actionListener="#{ordenMovilizacionController.update}" value="#{nombres.Save}" update="display,:OrdenMovilizacionListForm:datalist,:growl" oncomplete="handleSubmit(args, 'OrdenMovilizacionEditDialog');"/>

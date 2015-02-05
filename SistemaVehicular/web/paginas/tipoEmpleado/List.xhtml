@@ -16,11 +16,12 @@
         <ui:define name="body">
             <h:form id="TipoEmpleadoListForm">
                 <p:panel header="#{nombres.ListTipoEmpleadoTitle}">
+                    <center>
                     <p:dataTable id="datalist" value="#{tipoEmpleadoController.items}" var="item"
                                  selectionMode="single" selection="#{tipoEmpleadoController.selected}"
                                  paginator="true"
                                  rowKey="#{item.idTipoempl}"
-                                 rows="10"
+                                 rows="10" style="width: 400px"
                                  rowsPerPageTemplate="10,20,30,40,50"
                                  >
 
@@ -46,6 +47,7 @@
                             <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{nombres.Delete}" actionListener="#{tipoEmpleadoController.destroy}" update=":growl,datalist" disabled="#{empty tipoEmpleadoController.selected}"/>
                         </f:facet>
                     </p:dataTable>
+                        </center>
                 </p:panel>
             </h:form>
 

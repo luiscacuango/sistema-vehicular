@@ -24,7 +24,7 @@
                         <p:selectOneMenu id="idEmpresa" value="#{departamentoController.selected.idEmpresa}" required="true" requiredMessage="#{nombres.EditDepartamentoRequiredMessage_idEmpresa}">
                             <f:selectItems value="#{empresaController.itemsAvailableSelectOne}"
                                            var="idEmpresaItem"
-                                           itemValue="#{idEmpresaItem}"/>
+                                           itemValue="#{idEmpresaItem}" itemLabel="#{idEmpresaItem.nombEmpr}"/>
                         </p:selectOneMenu>
                     </p:panelGrid>
                     <p:commandButton actionListener="#{departamentoController.create}" value="#{nombres.Save}" update="display,:DepartamentoListForm:datalist,:growl" oncomplete="handleSubmit(args,'DepartamentoCreateDialog');"/>
