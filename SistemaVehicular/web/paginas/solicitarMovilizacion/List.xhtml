@@ -20,7 +20,7 @@
                                  selectionMode="single" selection="#{ordenMovilizacionController.selected}"
                                  paginator="true"
                                  rowKey="#{item.idOrdemovi}"
-                                 rows="10" filterEvent="enter"
+                                 rows="10"
                                  rowsPerPageTemplate="10,20,30,40,50" 
                                  >
 
@@ -82,7 +82,7 @@
                             <h:outputText value="#{item.idVehi.placaVehi}"/>
                         </p:column>
                         <f:facet name="footer">
-                            <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{nombres.Create}" actionListener="#{ordenMovilizacionController.prepareCreate}" update=":SolicitaMovilizacionCreateForm" oncomplete="PF('SolicitaMovilizacionCreateDialog').show()"/>
+                            <p:commandButton id="createButton" icon="ui-icon-plus"   value="Solicitar" actionListener="#{ordenMovilizacionController.prepareCreate}" update=":SolicitaMovilizacionCreateForm" oncomplete="PF('SolicitaMovilizacionCreateDialog').show()"/>
                             <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{nombres.View}" update=":SolicitaMovilizacionViewForm" oncomplete="PF('SolicitaMovilizacionViewDialog').show()" disabled="#{empty ordenMovilizacionController.selected}"/>
                             <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{nombres.Edit}" update=":SolicitaMovilizacionEditForm" oncomplete="PF('SolicitaMovilizacionEditDialog').show()" disabled="#{empty ordenMovilizacionController.selected}"/>
                             <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{nombres.Delete}" actionListener="#{ordenMovilizacionController.destroy}" update=":growl,datalist" disabled="#{empty ordenMovilizacionController.selected}"/>
